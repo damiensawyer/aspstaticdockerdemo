@@ -28,3 +28,4 @@ C:\temp\code\statictest\obj\Debug\net8.0\refint\statictest.dll
 C:\temp\code\statictest\obj\Debug\net8.0\statictest.pdb
 C:\temp\code\statictest\obj\Debug\net8.0\statictest.genruntimeconfig.cache
 C:\temp\code\statictest\obj\Debug\net8.0\ref\statictest.dll
+C:\Temp\code\statictest\obj\Debug\net8.0\statictest.sourcelink.json
