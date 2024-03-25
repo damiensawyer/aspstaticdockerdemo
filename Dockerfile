@@ -21,7 +21,7 @@ RUN dotnet publish "statictest.csproj" -c $BUILD_CONFIGURATION -o /app/publish /
 
 FROM base AS final
 WORKDIR /app
-ENV ASPNETCORE_URLS=http://+:5241
-EXPOSE 5241
+# ENV ASPNETCORE_URLS=http://+:5241
+# EXPOSE 5241
 COPY --from=dotnet-build /app/publish .
 ENTRYPOINT ["dotnet", "statictest.dll","--urls", "http://0.0.0.0:5241"]
