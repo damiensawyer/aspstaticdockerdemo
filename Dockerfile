@@ -13,7 +13,7 @@ ARG BUILD_CONFIGURATION='Release'
 ARG APP_VERSION='0.0.1-dev'
 ENV PROJECT_PATH="statictest.csproj"
 # Restore packages
-WORKDIR /
+WORKDIR /src
 COPY . .
 RUN dotnet publish "statictest.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
@@ -22,6 +22,6 @@ RUN dotnet publish "statictest.csproj" -c $BUILD_CONFIGURATION -o /app/publish /
 FROM base AS final
 WORKDIR /app
 ENV ASPNETCORE_URLS=http://+:5241
-EXPOSE 7170
+EXPOSE 5241
 COPY --from=dotnet-build /app/publish .
 ENTRYPOINT ["dotnet", "statictest.dll","--urls", "http://0.0.0.0:5241"]
