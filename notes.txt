@@ -1,0 +1,7 @@
+This worked
+ docker build -f Dockerfile -t statictest .
+ docker run -d statictest
+http://localhost:5241/hello.html
+
+
+
