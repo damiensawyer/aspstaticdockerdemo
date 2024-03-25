@@ -11,33 +11,17 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS dotnet-build
 ARG BUILD_CONFIGURATION='Release'
 ARG APP_VERSION='0.0.1-dev'
-ENV PROJECT_PATH="Sc.Configuration.Api/Sc.Configuration.Api.csproj"
+ENV PROJECT_PATH="statictest.csproj"
 # Restore packages
-WORKDIR /src
+WORKDIR /
 COPY . .
-# RUN dotnet restore $PROJECT_PATH
-WORKDIR '/src/Sc.Configuration.Api'
-# RUN dotnet build "Sc.Configuration.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
-RUN dotnet publish "Sc.Configuration.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
-
-################### Svelte ###################
-FROM node:20 AS node-build
-
-WORKDIR /app
-
-COPY Sc.Configuration.Api/UI/package.json ./
-COPY Sc.Configuration.Api/UI/package-lock.json ./
-RUN npm install
-COPY Sc.Configuration.Api/UI/ ./
-RUN npm run build
-
+RUN dotnet publish "statictest.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 ################### Final ###################
 
 FROM base AS final
 WORKDIR /app
-ENV ASPNETCORE_URLS=http://+:7170
+ENV ASPNETCORE_URLS=http://+:5241
 EXPOSE 7170
 COPY --from=dotnet-build /app/publish .
-COPY --from=node-build /app/build/ wwwroot
-ENTRYPOINT ["dotnet", "Sc.Configuration.Api.dll","--urls", "http://0.0.0.0:7170"]
+ENTRYPOINT ["dotnet", "statictest.dll","--urls", "http://0.0.0.0:5241"]

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Temp\\code\\statictest\\statictest.csproj": {}
+    "C:\\temp\\code\\statictest\\statictest.csproj": {}
   },
   "projects": {
-    "C:\\Temp\\code\\statictest\\statictest.csproj": {
+    "C:\\temp\\code\\statictest\\statictest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Temp\\code\\statictest\\statictest.csproj",
+        "projectUniqueName": "C:\\temp\\code\\statictest\\statictest.csproj",
         "projectName": "statictest",
-        "projectPath": "C:\\Temp\\code\\statictest\\statictest.csproj",
+        "projectPath": "C:\\temp\\code\\statictest\\statictest.csproj",
         "packagesPath": "C:\\Users\\dsawyer\\.nuget\\packages\\",
-        "outputPath": "C:\\Temp\\code\\statictest\\obj\\",
+        "outputPath": "C:\\temp\\code\\statictest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dsawyer\\AppData\\Roaming\\NuGet\\NuGet.Config",
