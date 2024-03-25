@@ -21,6 +21,5 @@ app.UseStaticFiles();
 app.UseAuthorization();
 
 app.MapRazorPages();
-//app.Urls.Add("http://localhost:7170");
-app.Urls.Add("http://*:7170");
+app.Urls.Add("http://*:8888");
 app.Run();
